@@ -1,6 +1,10 @@
 name: Hello world action
 on: [push]
 jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello world v0"
   static-code-analysis:
     name: Static code analysis
     runs-on: ubuntu-latest
@@ -13,3 +17,5 @@ jobs:
         run: echo ${{ github.workspace }}
       - name: List files
         run: tree ./
+      - name: Install packages
+        run: sudo apt install -y curl
