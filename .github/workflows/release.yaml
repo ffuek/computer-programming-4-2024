@@ -4,6 +4,8 @@ jobs:
   release:
     name: Release the app
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Clone the repository
         uses: actions/checkout@v4
@@ -17,3 +19,11 @@ jobs:
         run: mvn -DskipTests package
       - name: List the target directory
         run: ls target/
+      - name: Rename the app
+        run: mv target/*.jar target/App.jar
+      - name: Create a release with the app jar
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "target/*.jar"
+          body: "Release ${{ github.ref }}" 
+        
