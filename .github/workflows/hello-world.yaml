@@ -7,3 +7,7 @@ jobs:
     steps:
       - name: Execute a Bash command
         run: echo "Hello world"
+      - name: Check the repo out
+        uses: actions/checkout@v4
+      - name: List files
+        run: echo ${{ github.workspace }}
