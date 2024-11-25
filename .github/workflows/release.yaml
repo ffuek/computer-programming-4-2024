@@ -1,5 +1,8 @@
 name: Release
-on: [push]
+on:
+  push:
+    tags:
+      "v*.*.*"
 jobs:
   release:
     name: Release the app
@@ -25,5 +28,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "target/*.jar"
-          body: "Release ${{ github.ref }}" 
+          body: "Release ${{ github.ref }}"
         
