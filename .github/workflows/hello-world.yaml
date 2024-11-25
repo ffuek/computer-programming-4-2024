@@ -9,5 +9,7 @@ jobs:
         run: echo "Hello world"
       - name: Check the repo out
         uses: actions/checkout@v4
-      - name: List files
+      - name: Print the repo directory
         run: echo ${{ github.workspace }}
+      - name: List files
+        run: tree ./
