@@ -1,0 +1,9 @@
+name: Hello world action
+on: [push]
+jobs:
+  static-code-analysis:
+    name: Static code analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute a Bash command
+        run: echo "Hello world"
